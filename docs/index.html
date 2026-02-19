@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extract Archive — One-click archive extraction for macOS</title>
+  <meta name="description" content="Extract RAR, ZIP, TAR, 7Z and more directly from Finder with a right-click. Free, open, no app required." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="icon">📦</span>
+    Extract Archive
+  </div>
+  <ul class="nav-links">
+    <li><a href="#formats">Formats</a></li>
+    <li><a href="#how-it-works">Install</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="support.html" class="nav-cta">☕ Support</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">✦ Free &amp; Open Source · macOS</div>
+  <h1>Extract any archive<br /><span>with one click</span></h1>
+  <p>Right-click any .rar, .zip, .tar or 20+ other formats in Finder and extract instantly — no app, no drag-and-drop, no fuss.</p>
+  <div class="hero-actions">
+    <a href="https://github.com/yanmcruz/extract-archive/archive/refs/heads/main.zip" class="btn btn-primary">
+      ⬇️ Download for macOS
+    </a>
+    <a href="#how-it-works" class="btn btn-ghost">
+      See how to install →
+    </a>
+  </div>
+
+  <!-- Terminal mock -->
+  <div class="terminal">
+    <div class="terminal-bar">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="terminal-title">zsh — extract-archive</span>
+    </div>
+    <div class="terminal-body">
+      <div><span class="prompt">→</span> <span class="cmd">chmod +x install.sh &amp;&amp; ./install.sh</span></div>
+      <div><span class="out">📁 Creating installation directory...</span></div>
+      <div><span class="out">📦 Copying files...</span></div>
+      <div><span class="out">🔧 Setting permissions...</span></div>
+      <div><span class="out">🔓 Removing security restrictions...</span></div>
+      <div><span class="out">🎯 Creating Finder Quick Action...</span></div>
+      <div>&nbsp;</div>
+      <div><span class="success">✅ Installation complete!</span></div>
+      <div><span class="out">Right-click any archive → Extract Archive</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATS -->
+<section class="formats-section" id="formats">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Supported Formats</div>
+      <h2 class="section-title">Works with everything</h2>
+      <p class="section-subtitle">Handles all major archive formats out of the box. RAR support included — no extra tools needed.</p>
+    </div>
+    <div class="formats-grid">
+      <div class="format-card">
+        <div class="ext">.rar</div>
+        <div class="desc">RAR Archives</div>
+      </div>
+      <div class="format-card">
+        <div class="ext">.zip</div>
+        <div class="desc">ZIP Archives</div>
+      </div>
+      <div class="format-card">
+        <div class="ext">.tar</div>
+        <div class="desc">TAR Archives</div>
+      </div>
+      <div class="format-card">
+        <div class="ext">.tar.gz</div>
+        <div class="desc">Gzipped TAR</div>
+      </div>
+      <div class="format-card">
+        <div class="ext">.tar.bz2</div>
+        <div class="desc">Bzip2 TAR</div>
+      </div>
+      <div class="format-card">
+        <div class="ext">.tar.xz</div>
+        <div class="desc">XZ TAR</div>
+      </div>
+      <div class="format-card">
+        <div class="ext">.7z</div>
+        <div class="desc">7-Zip Archives</div>
+      </div>
+      <div class="format-card">
+        <div class="ext">.gz</div>
+        <div class="desc">Gzip Files</div>
+      </div>
+      <div class="format-card">
+        <div class="ext">.bz2</div>
+        <div class="desc">Bzip2 Files</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="section-label">Installation</div>
+    <h2 class="section-title">Up and running in 3 steps</h2>
+    <p class="section-subtitle">A one-line installer handles everything — the script, the binaries, and the Finder Quick Action.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Download the package</h3>
+          <p>Download the zip file and extract it anywhere on your Mac.</p>
+          <a href="https://github.com/yanmcruz/extract-archive/archive/refs/heads/main.zip" class="btn btn-primary" style="display:inline-flex;margin-top:.7rem;padding:.55rem 1.1rem;font-size:.85rem;">⬇️ Download ZIP</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Run the installer</h3>
+          <p>Open Terminal, navigate to the extracted folder, and run:</p>
+          <code>chmod +x install.sh &amp;&amp; ./install.sh</code>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Allow unrar (first time only)</h3>
+          <p>macOS may block the unrar binary the first time. Open Finder, navigate to <code style="display:inline;padding:.1rem .4rem;font-size:.8rem;">~/.local/bin/extract-archive</code>, right-click <strong>unrar</strong>, hold Option, and select Open.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" style="background: var(--surface); border-top: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Everything you need, nothing you don't</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🖱️</div>
+        <h3>Right-click to extract</h3>
+        <p>Adds "Extract Archive" to the Finder context menu. Select a file, right-click, done.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📂</div>
+        <h3>Smart folder creation</h3>
+        <p>Extracts into a clean folder named after the archive, right next to where it lives.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔔</div>
+        <h3>Notifications</h3>
+        <p>macOS notifications tell you when extraction completes or if something goes wrong.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔓</div>
+        <h3>RAR support built-in</h3>
+        <p>Bundles the official unrar binary — no need to install Homebrew or any third-party app.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Terminal alias</h3>
+        <p>Optionally add <code style="background:var(--bg);padding:.1rem .4rem;border-radius:4px;font-size:.8rem;">extract file.zip</code> to your shell for a quick command-line shortcut too.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🗑️</div>
+        <h3>Clean uninstall</h3>
+        <p>One command removes everything — the binary, the Finder Quick Action, all of it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Ready to simplify your workflow?</h2>
+    <p>Free, no account needed, no telemetry. Just works.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://github.com/yanmcruz/extract-archive/archive/refs/heads/main.zip" class="btn btn-primary">
+        ⬇️ Download for macOS
+      </a>
+      <a href="support.html" class="btn btn-ghost">
+        ☕ Buy me a coffee
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="#how-it-works">Install</a>
+    <a href="support.html">Support</a>
+    <a href="https://github.com/yanmcruz/extract-archive" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <p>Made with ❤️ for macOS · <a href="support.html">Support the project</a></p>
+</footer>
+
+</body>
+</html>
