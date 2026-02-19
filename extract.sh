@@ -35,8 +35,8 @@ case "$FILENAME" in
         UNRAR_PATH=""
         if command -v unrar &> /dev/null; then
             UNRAR_PATH="unrar"
-        elif [ -f "/Users/yanmcruz/rar/unrar" ]; then
-            UNRAR_PATH="/Users/yanmcruz/rar/unrar"
+        elif [ -f "$HOME/.local/bin/extract-archive/unrar" ]; then
+            UNRAR_PATH="$HOME/.local/bin/extract-archive/unrar"
         elif [ -f "$(dirname "$0")/unrar" ]; then
             UNRAR_PATH="$(dirname "$0")/unrar"
         else

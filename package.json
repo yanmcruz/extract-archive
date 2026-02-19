@@ -1,0 +1,12 @@
+{
+  "name": "extract-archive",
+  "version": "1.0.0",
+  "description": "One-click archive extraction for macOS",
+  "private": true,
+  "scripts": {
+    "build-dmg": "appdmg dmg-assets/appdmg.json \"Extract.Archive.dmg\""
+  },
+  "devDependencies": {
+    "appdmg": "^0.6.6"
+  }
+}

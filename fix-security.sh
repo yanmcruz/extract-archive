@@ -3,7 +3,7 @@
 # Fix macOS Security Issues for RAR Tools
 # This script removes quarantine attributes and helps bypass Gatekeeper
 
-SCRIPT_DIR="/Users/yanmcruz/rar"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "Fixing macOS security settings for RAR tools..."
 echo ""
@@ -30,3 +30,5 @@ echo "  2. Scroll down to 'Security' section"
 echo "  3. Click 'Allow Anyway' if unrar appears there"
 echo ""
 echo "After allowing, try running: $SCRIPT_DIR/extract.sh <archive-file>"
+echo ""
+echo "Or right-click any archive in Finder and select 'Extract Archive'."
