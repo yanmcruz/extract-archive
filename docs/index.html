@@ -30,35 +30,72 @@
   <h1>Extract any archive<br /><span>with one click</span></h1>
   <p>Right-click any .rar, .zip, .tar or 20+ other formats in Finder and extract instantly — no app, no drag-and-drop, no fuss.</p>
   <div class="hero-actions">
-    <a href="https://github.com/yanmcruz/extract-archive/archive/refs/heads/main.zip" class="btn btn-primary">
-      ⬇️ Download for macOS
+    <a href="https://github.com/yanmcruz/extract-archive/releases/latest/download/Extract.Archive.dmg" class="btn btn-primary">
+      ⬇️ Download .dmg
     </a>
     <a href="#how-it-works" class="btn btn-ghost">
-      See how to install →
+      See all install options →
     </a>
   </div>
 
-  <!-- Terminal mock -->
-  <div class="terminal">
-    <div class="terminal-bar">
-      <span class="dot red"></span>
-      <span class="dot yellow"></span>
-      <span class="dot green"></span>
-      <span class="terminal-title">zsh — extract-archive</span>
+  <!-- Install method picker -->
+  <div class="install-picker">
+    <div class="install-tab active" data-tab="dmg" onclick="switchTab('dmg', this)">Easy Install</div>
+    <div class="install-tab" data-tab="terminal" onclick="switchTab('terminal', this)">Terminal</div>
+  </div>
+
+  <!-- DMG install preview -->
+  <div class="install-preview" id="tab-dmg">
+    <div class="dmg-steps">
+      <div class="dmg-step">
+        <div class="dmg-step-icon">1</div>
+        <div class="dmg-step-label">Download <strong>.dmg</strong></div>
+      </div>
+      <div class="dmg-arrow">→</div>
+      <div class="dmg-step">
+        <div class="dmg-step-icon">2</div>
+        <div class="dmg-step-label">Drag to <strong>Applications</strong></div>
+      </div>
+      <div class="dmg-arrow">→</div>
+      <div class="dmg-step">
+        <div class="dmg-step-icon">3</div>
+        <div class="dmg-step-label">Open the app to <strong>install</strong></div>
+      </div>
     </div>
-    <div class="terminal-body">
-      <div><span class="prompt">→</span> <span class="cmd">chmod +x install.sh &amp;&amp; ./install.sh</span></div>
-      <div><span class="out">📁 Creating installation directory...</span></div>
-      <div><span class="out">📦 Copying files...</span></div>
-      <div><span class="out">🔧 Setting permissions...</span></div>
-      <div><span class="out">🔓 Removing security restrictions...</span></div>
-      <div><span class="out">🎯 Creating Finder Quick Action...</span></div>
-      <div>&nbsp;</div>
-      <div><span class="success">✅ Installation complete!</span></div>
-      <div><span class="out">Right-click any archive → Extract Archive</span></div>
+  </div>
+
+  <!-- Terminal install preview -->
+  <div class="install-preview" id="tab-terminal" style="display:none;">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="terminal-title">zsh — extract-archive</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="prompt">→</span> <span class="cmd">chmod +x install.sh &amp;&amp; ./install.sh</span></div>
+        <div><span class="out">📁 Creating installation directory...</span></div>
+        <div><span class="out">📦 Copying files...</span></div>
+        <div><span class="out">🔧 Setting permissions...</span></div>
+        <div><span class="out">🔓 Removing security restrictions...</span></div>
+        <div><span class="out">🎯 Creating Finder Quick Action...</span></div>
+        <div>&nbsp;</div>
+        <div><span class="success">✅ Installation complete!</span></div>
+        <div><span class="out">Right-click any archive → Extract Archive</span></div>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+function switchTab(tab, el) {
+  document.querySelectorAll('.install-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.install-preview').forEach(p => p.style.display = 'none');
+  el.classList.add('active');
+  document.getElementById('tab-' + tab).style.display = 'block';
+}
+</script>
 
 <!-- FORMATS -->
 <section class="formats-section" id="formats">
@@ -113,33 +150,78 @@
 <section id="how-it-works">
   <div class="container">
     <div class="section-label">Installation</div>
-    <h2 class="section-title">Up and running in 3 steps</h2>
-    <p class="section-subtitle">A one-line installer handles everything — the script, the binaries, and the Finder Quick Action.</p>
+    <h2 class="section-title">Two ways to install</h2>
+    <p class="section-subtitle">Choose the method that works best for you.</p>
 
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-content">
-          <h3>Download the package</h3>
-          <p>Download the zip file and extract it anywhere on your Mac.</p>
-          <a href="https://github.com/yanmcruz/extract-archive/archive/refs/heads/main.zip" class="btn btn-primary" style="display:inline-flex;margin-top:.7rem;padding:.55rem 1.1rem;font-size:.85rem;">⬇️ Download ZIP</a>
+    <div class="two-col-install">
+
+      <!-- Easy install -->
+      <div class="install-method">
+        <div class="method-header">
+          <span class="method-badge">Recommended</span>
+          <h3>Easy Install (DMG)</h3>
+          <p>No Terminal required. Just drag and click.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h3>Download the DMG</h3>
+              <p>Download the disk image file.</p>
+              <a href="https://github.com/yanmcruz/extract-archive/releases/latest/download/Extract.Archive.dmg" class="btn btn-primary" style="display:inline-flex;margin-top:.7rem;padding:.55rem 1.1rem;font-size:.85rem;">⬇️ Download .dmg</a>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h3>Open and drag to Applications</h3>
+              <p>Open the DMG, then drag <strong>Extract Archive.app</strong> into the Applications folder shortcut.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h3>Launch to complete setup</h3>
+              <p>Open <strong>Extract Archive</strong> from Applications. It will set up the Finder right-click menu automatically.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-content">
-          <h3>Run the installer</h3>
-          <p>Open Terminal, navigate to the extracted folder, and run:</p>
-          <code>chmod +x install.sh &amp;&amp; ./install.sh</code>
+
+      <!-- Terminal install -->
+      <div class="install-method">
+        <div class="method-header">
+          <span class="method-badge method-badge-alt">Advanced</span>
+          <h3>Terminal Install (ZIP)</h3>
+          <p>For developers and power users.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h3>Download the ZIP</h3>
+              <p>Download and extract the source package.</p>
+              <a href="https://github.com/yanmcruz/extract-archive/archive/refs/heads/main.zip" class="btn btn-ghost" style="display:inline-flex;margin-top:.7rem;padding:.55rem 1.1rem;font-size:.85rem;">⬇️ Download ZIP</a>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h3>Run the installer script</h3>
+              <p>Open Terminal, navigate to the folder, and run:</p>
+              <code>chmod +x install.sh &amp;&amp; ./install.sh</code>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h3>Allow unrar (first time only)</h3>
+              <p>If macOS blocks unrar, right-click it in Finder, hold Option, and select Open.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-content">
-          <h3>Allow unrar (first time only)</h3>
-          <p>macOS may block the unrar binary the first time. Open Finder, navigate to <code style="display:inline;padding:.1rem .4rem;font-size:.8rem;">~/.local/bin/extract-archive</code>, right-click <strong>unrar</strong>, hold Option, and select Open.</p>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -190,8 +272,8 @@
     <h2>Ready to simplify your workflow?</h2>
     <p>Free, no account needed, no telemetry. Just works.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-      <a href="https://github.com/yanmcruz/extract-archive/archive/refs/heads/main.zip" class="btn btn-primary">
-        ⬇️ Download for macOS
+      <a href="https://github.com/yanmcruz/extract-archive/releases/latest/download/Extract.Archive.dmg" class="btn btn-primary">
+        ⬇️ Download .dmg
       </a>
       <a href="support.html" class="btn btn-ghost">
         ☕ Buy me a coffee
